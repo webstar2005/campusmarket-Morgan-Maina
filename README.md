@@ -4,12 +4,12 @@ A campus marketplace where students buy and sell second-hand items to each other
 textbooks, electronics, dorm and living gear, transport and clothing.
 
 - **Course:** CCS 2314 - Web Based Programming II
-- **Stage:** Weeks 1-2, static catalog plus client-side JavaScript
+- **Stage:** Weeks 1-3, static catalog, client-side JavaScript, and form validation
 - **Built by:** Morgan Maina
 
 ## What this build contains
 
-Eleven hand-written HTML pages, one stylesheet and four small JavaScript files. No PHP,
+Twelve hand-written HTML pages, one stylesheet and five small JavaScript files. No PHP,
 no database, no framework and no build step, because the first half of the course is
 about static content done properly before anything dynamic arrives.
 
@@ -19,6 +19,7 @@ about static content done properly before anything dynamic arrives.
 | `products.html` | Full catalog with all eight listings, live search, filters and sorting |
 | `product.html` | Product detail page for the Casio fx-991 listing, with a live line total |
 | `cart.html` | Cart page with running totals, quantity changes and item removal |
+| `register.html` | Registration form with client-side validation and interactive feedback |
 | `category-electronics.html` | Electronics category listing |
 | `category-textbooks.html` | Textbooks category listing |
 | `category-dorm-living.html` | Dorm and living category listing |
@@ -33,6 +34,7 @@ about static content done properly before anything dynamic arrives.
 | `js/format.js` | `formatMoney()`, shared by the product and cart pages |
 | `js/product-total.js` | Recalculates the quantity times price line total on `product.html` |
 | `js/cart.js` | Running cart total, count and empty state on `cart.html` |
+| `js/register.js` | Validation, error summary, strength meter and toggles on `register.html` |
 
 ```
 campusmarket-Morgan-Maina/
@@ -40,6 +42,7 @@ campusmarket-Morgan-Maina/
 ├── products.html
 ├── product.html
 ├── cart.html
+├── register.html
 ├── category-electronics.html
 ├── category-textbooks.html
 ├── category-dorm-living.html
@@ -53,7 +56,8 @@ campusmarket-Morgan-Maina/
     ├── filter.js
     ├── format.js
     ├── product-total.js
-    └── cart.js
+    ├── cart.js
+    └── register.js
 ```
 
 ## Running it
@@ -96,20 +100,55 @@ carries `data-id`, `data-name`, `data-price`, `data-category`, `data-condition` 
   shadow as custom properties in `:root`, so a change there restyles every page.
   Components are named by block, for example `.product-card__title`.
 - **Plain client-side JavaScript** - each script finds elements with
-  `getElementById` or `querySelector`, then rewrites them with `textContent` or
-  `style.display`. Functions are called from `oninput`, `onchange` and `onclick`
-  attributes in the markup, and the scripts load at the end of `<body>` so those calls
-  resolve.
-- **Progressive enhancement** - the filter form is a real `GET` form with
-  `onsubmit="return false"`, so it keeps working with JavaScript switched off: the page
-  reloads with the chosen values in the query string, and `js/filter.js` reads them back
-  out of `window.location.search` on load.
+  `getElementById` or `querySelector`, then rewrites them with `textContent`,
+  `style.display` or a `data-` attribute.
+- **`addEventListener` only** - there is not one inline `onclick`, `onchange` or
+  `oninput` attribute left in the project. Week 2 used them because that is what the
+  course had introduced; Week 3 replaced them, because a handler in the markup can only
+  ever hold one function and mixes behaviour into the HTML.
+- **Progressive enhancement** - the filter form is a real `GET` form whose submit
+  handler calls `event.preventDefault()`. With JavaScript switched off it still submits
+  and reloads with the chosen values in the query string, and `js/filter.js` reads them
+  back out of `window.location.search` on load.
+- **Validation in two layers, honestly** - `register.html` carries `required`,
+  `minlength`, `pattern` and `type="email"` in the markup, but also `novalidate`, so the
+  messages come from `js/register.js` and look identical in every browser instead of
+  native bubbles that cannot be styled. These checks are for experience only. PHP has
+  to repeat every one of them in Week 7.
 - **Responsive** - grids collapse with `auto-fit` and `minmax`, with a small number of
   breakpoints in the component that needs them.
 - **Accessible** - skip link, visible focus rings, `aria-current` on the active nav
-  item and breadcrumb, labelled form controls, real `button` and `a` elements, and
-  colour choices that stay above contrast requirements on both light and dark panels.
+  item and breadcrumb, labelled form controls, `aria-invalid` plus `aria-describedby`
+  on fields that fail, a `role="alert"` summary that takes focus on submit, and colour
+  choices that stay above contrast requirements on both light and dark panels.
 - **No dependencies** - nothing to install, so the focus stays on the course material.
+
+## Form validation, Week 3
+
+`register.html` and `js/register.js` demonstrate the three kinds of check the brief asks
+for, plus the interaction patterns:
+
+| Kind | Rule | Where |
+| --- | --- | --- |
+| Required | Every field, and at least one role | `checkName`, `checkEmail`, `checkPhone`, `checkPassword`, `checkConfirm`, `checkRole`, `checkTerms` |
+| Format | Email shape, and a Kenyan mobile number starting 07 or 01 | `EMAIL_PATTERN`, `PHONE_PATTERN` |
+| Custom | Passwords must match | `checkConfirm` |
+| Custom | Password needs 8 characters, a letter and a number | `checkPassword` |
+| Custom | Full name needs two words | `checkName` |
+| Custom | Pickup-only terms must be accepted | `checkTerms` |
+
+Interaction patterns, all driven by `addEventListener`:
+
+- **Show and hide** - `togglePasswordVisibility` flips the password field between
+  `password` and `text` and keeps `aria-pressed` in step; `toggleDetails` does the same
+  for the "What happens to my data?" panel with `aria-expanded`.
+- **Update instantly** - a live character counter on the name field, and a five-step
+  password strength meter driven by a `data-score` attribute on the bar.
+- **Validate on blur, correct on input** - `blur` checks the field you just left;
+  `input` re-checks it only if it is already showing a message, so the page never
+  complains while you are still typing the first letter.
+- **One summary, not seven popups** - submit collects every problem, lists them at the
+  top as links to the offending field, and moves focus to the list.
 
 ## Deliberate limitations
 
@@ -122,6 +161,8 @@ These are placeholders for later weeks, not oversights:
   with the database in Week 7.
 - Quantities are capped at 9 on both the product and cart pages, because this week is
   about the arithmetic, not the stock rules.
+- The registration form validates but creates nothing. There is no `users` table and no
+  password hashing, both of which are Week 7 work.
 - Listings still live in the HTML, not in a table, so the catalog cannot be edited from
   the site. That is the Week 7 change.
 - The contact form does not send. It needs a server, which arrives with the PHP weeks.
@@ -131,8 +172,9 @@ These are placeholders for later weeks, not oversights:
 | Weeks | What is added |
 | --- | --- |
 | 1 | Static catalog in HTML and CSS |
-| 2 | Live search, filtering, sorting, cart maths and a cart page, this build |
-| 3-5 | Form validation, strings and dates, and the rest of the interaction layer |
+| 2 | Live search, filtering, sorting, cart maths and a cart page |
+| 3 | `addEventListener`, a validated registration form, and interactive UI, this build |
+| 4-5 | Animation, media, Web 2.0, then the rest of the interaction layer |
 | 6 | CAT 1, the individual build is assessed |
 | 7-10 | PHP and MySQL: accounts, sessions, live product data, persistent cart |
 | 11 | CAT 2, the merged team version is assessed |

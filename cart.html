@@ -32,6 +32,7 @@
           <li><a class="site-nav__link" href="products.html">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
           <li><a class="site-nav__link" href="cart.html" aria-current="page">Cart</a></li>
+          <li><a class="site-nav__link" href="register.html">Register</a></li>
           <li><a class="site-nav__link" href="about.html">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
         </ul>
@@ -82,7 +83,7 @@
                 <p class="product-card__meta">KSh 1,200 each &middot; Brian K. &middot; 2 available</p>
                 <div class="field">
                   <label class="field__label" for="quantity-cm-0002">Quantity</label>
-                  <select class="select" id="quantity-cm-0002" onchange="updateTotal()">
+                  <select class="select" id="quantity-cm-0002" data-quantity>
                     <option value="1" selected>1</option>
                     <option value="2">2</option>
                   </select>
@@ -90,7 +91,7 @@
               </div>
               <div class="cart-item__total">
                 <p class="price" data-line-total>KSh 1,200</p>
-                <button class="btn btn--ghost" type="button" onclick="removeItem(this)">Remove</button>
+                <button class="btn btn--ghost" type="button" data-remove>Remove</button>
               </div>
             </article>
 
@@ -103,14 +104,14 @@
                 <p class="product-card__meta">KSh 2,200 each &middot; Faraj H. &middot; 1 available</p>
                 <div class="field">
                   <label class="field__label" for="quantity-cm-0006">Quantity</label>
-                  <select class="select" id="quantity-cm-0006" onchange="updateTotal()">
+                  <select class="select" id="quantity-cm-0006" data-quantity>
                     <option value="1" selected>1</option>
                   </select>
                 </div>
               </div>
               <div class="cart-item__total">
                 <p class="price" data-line-total>KSh 2,200</p>
-                <button class="btn btn--ghost" type="button" onclick="removeItem(this)">Remove</button>
+                <button class="btn btn--ghost" type="button" data-remove>Remove</button>
               </div>
             </article>
 
@@ -123,14 +124,14 @@
                 <p class="product-card__meta">KSh 1,500 each &middot; Ian M. &middot; 1 available</p>
                 <div class="field">
                   <label class="field__label" for="quantity-cm-0008">Quantity</label>
-                  <select class="select" id="quantity-cm-0008" onchange="updateTotal()">
+                  <select class="select" id="quantity-cm-0008" data-quantity>
                     <option value="1" selected>1</option>
                   </select>
                 </div>
               </div>
               <div class="cart-item__total">
                 <p class="price" data-line-total>KSh 1,500</p>
-                <button class="btn btn--ghost" type="button" onclick="removeItem(this)">Remove</button>
+                <button class="btn btn--ghost" type="button" data-remove>Remove</button>
               </div>
             </article>
 
@@ -159,8 +160,8 @@
               </div>
             </dl>
             <p class="price" id="summary-total">KSh 4,900</p>
-            <button class="btn btn--primary" type="submit" disabled aria-describedby="checkout-note">Proceed to checkout</button>
-            <button class="btn btn--secondary" type="button" onclick="updateTotal()">Update the total</button>
+            <button class="btn btn--primary" type="button" disabled aria-describedby="checkout-note">Proceed to checkout</button>
+            <button class="btn btn--secondary" type="button" id="cart-update">Update the total</button>
             <p class="field__hint" id="checkout-note">Checkout arrives in a later week. Placing an
               order needs a server to store it, which begins in Week 7.</p>
           </aside>
@@ -190,13 +191,14 @@
           <li><a href="products.html">All products</a></li>
           <li><a href="products.html#categories">Categories</a></li>
           <li><a href="product.html">Product page</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
       </nav>
 
       <nav aria-labelledby="footer-project">
         <h2 id="footer-project">Project</h2>
         <ul>
-          <li><a href="cart.html">Cart</a></li>
+          <li><a href="register.html">Register</a></li>
           <li><a href="about.html">About the build</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
@@ -206,7 +208,7 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;3: static pages, filtering, cart maths and form validation.</p>
     </div>
   </footer>
 

@@ -4,6 +4,8 @@ const searchInput = document.getElementById("site-search");
 const categorySelect = document.getElementById("filter-category");
 const conditionSelect = document.getElementById("filter-condition");
 const sortSelect = document.getElementById("filter-sort");
+const filterForm = document.getElementById("filter-form");
+const resetButton = document.getElementById("filter-reset");
 const visibleCount = document.getElementById("visible-count");
 const noResults = document.getElementById("no-results");
 
@@ -121,6 +123,27 @@ function applyStateFromUrl() {
     sortSelect.value = sort;
   }
 }
+
+function applyFiltersAndSort() {
+  sortProducts();
+  applyFilters();
+}
+
+function handleFilterSubmit(event) {
+  event.preventDefault();
+  applyFiltersAndSort();
+}
+
+function handleSortChange() {
+  applyFiltersAndSort();
+}
+
+searchInput.addEventListener("input", applyFilters);
+categorySelect.addEventListener("change", applyFilters);
+conditionSelect.addEventListener("change", applyFilters);
+sortSelect.addEventListener("change", handleSortChange);
+filterForm.addEventListener("submit", handleFilterSubmit);
+resetButton.addEventListener("click", resetFilters);
 
 applyStateFromUrl();
 sortProducts();

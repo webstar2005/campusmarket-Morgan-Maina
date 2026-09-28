@@ -32,6 +32,7 @@
           <li><a class="site-nav__link" href="products.html">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
           <li><a class="site-nav__link" href="cart.html">Cart</a></li>
+          <li><a class="site-nav__link" href="register.html">Register</a></li>
           <li><a class="site-nav__link" href="about.html" aria-current="page">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
         </ul>
@@ -76,20 +77,20 @@
     <section class="section section--tight section--surface" aria-labelledby="static-title">
       <div class="container">
         <h2 id="static-title">Two kinds of scripting, and which one runs now</h2>
-        <p class="lead">Week 2 is the first week the pages do something on their own. The change is
-          a new layer, not a rewrite: the same eight listings, the same design, a little
-          JavaScript.</p>
+        <p class="lead">Weeks 2 and 3 are the weeks the pages started reacting to people. Neither
+          one touched the markup much: the same listings, the same design, a little more
+          JavaScript each time.</p>
 
         <div class="grid grid--3">
           <article class="card">
-            <h3 class="card__title">Client-side, Week 2</h3>
+            <h3 class="card__title">Client-side, Weeks 2&ndash;3</h3>
             <p class="card__text">The HTML files still arrive exactly as they are stored, and the
-              server knows nothing about the change. <code>js/filter.js</code> and
-              <code>js/cart.js</code> run in the browser, find elements on the page, and rewrite
-              them as you type.</p>
-            <p class="card__text">No request goes out, so the results appear instantly. Turn
-              scripting off and the catalog still loads, because the form still submits and
-              reloads the page with the same values.</p>
+              server knows nothing about the change. <code>js/filter.js</code>,
+              <code>js/cart.js</code> and <code>js/register.js</code> run in the browser, find
+              elements on the page, and rewrite them as you type.</p>
+            <p class="card__text">No request goes out, so results and error messages appear
+              instantly. Turn scripting off and the catalog still loads, because the filter form
+              still submits and reloads the page with the same values.</p>
           </article>
 
           <article class="card">
@@ -97,13 +98,15 @@
             <p class="card__text">PHP reads each request and queries MySQL, so listings come from
               a real table and the same URL serves every student differently.</p>
             <p class="card__text">Sign-in, sessions, a cart that survives a page reload and orders
-              all appear once the data is live.</p>
+              all appear once the data is live. Every check in <code>js/register.js</code> has to
+              be repeated there, because a visitor can switch JavaScript off.</p>
           </article>
 
           <article class="card">
             <h3 class="card__title">Still the same page</h3>
-            <p class="card__text">The filter, sorting and cart totals are JavaScript behaviours, not
-              new markup. This week added <code>js/</code> to the project and nothing else.</p>
+            <p class="card__text">Filtering, cart totals and form validation are JavaScript
+              behaviours, not new markup. <code>js/</code> now holds five small files and
+              <code>register.html</code> is the only page added.</p>
             <p class="card__text">The listing data stays in the HTML for now, which is why
               <code>products.html</code> carries the same eight listings it had in Week 1.</p>
           </article>
@@ -120,12 +123,18 @@
           <div>
             <dt>Weeks 1&ndash;2</dt>
             <dd>Static catalog in HTML and CSS, then client scripting: live search, category and
-              condition filters, sorting, and cart totals calculated in the browser. This build.</dd>
+              condition filters, sorting, and cart totals calculated in the browser.</dd>
           </div>
           <div>
-            <dt>Weeks 3&ndash;5</dt>
-            <dd>More client scripting: form validation, working with strings and dates, and
-              finishing the interaction layer before the first assessment.</dd>
+            <dt>Week 3</dt>
+            <dd>Events and form validation: <code>addEventListener</code> replaces the inline
+              handlers, and a registration form checks required fields, formats and its own
+              rules. This build.</dd>
+          </div>
+          <div>
+            <dt>Weeks 4&ndash;5</dt>
+            <dd>Animation, media and Web 2.0, then the rest of the interaction layer before the
+              first assessment.</dd>
           </div>
           <div>
             <dt>Week 6</dt>
@@ -164,7 +173,7 @@
           </div>
           <div class="promise">
             <p class="promise__title">Plain scripts</p>
-            <p class="promise__text">Four small files in <code>js/</code>, loaded at the end of
+            <p class="promise__text">Five small files in <code>js/</code>, loaded at the end of
               <code>&lt;body&gt;</code>. No framework, no build step, no package manager, so the
               focus stays on the course material.</p>
           </div>
@@ -209,12 +218,14 @@
           <li><a href="products.html">All products</a></li>
           <li><a href="products.html#categories">Categories</a></li>
           <li><a href="product.html">Product page</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
       </nav>
 
       <nav aria-labelledby="footer-project">
         <h2 id="footer-project">Project</h2>
         <ul>
+          <li><a href="register.html">Register</a></li>
           <li><a href="about.html">About the build</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
@@ -224,7 +235,7 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;3: static pages, filtering, cart maths and form validation.</p>
     </div>
   </footer>
 </body>

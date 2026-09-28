@@ -13,3 +13,7 @@ function updateLineTotal() {
   const lineTotal = calculateTotal(price, quantity);
   lineTotalElement.textContent = formatMoney(lineTotal);
 }
+
+quantitySelect.addEventListener("change", updateLineTotal);
+
+updateLineTotal();

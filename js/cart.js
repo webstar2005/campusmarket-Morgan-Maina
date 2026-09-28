@@ -1,4 +1,7 @@
 const cartItems = document.querySelectorAll("[data-item]");
+const quantitySelects = document.querySelectorAll("[data-quantity]");
+const removeButtons = document.querySelectorAll("[data-remove]");
+const updateButton = document.getElementById("cart-update");
 const summaryCount = document.getElementById("summary-count");
 const summarySubtotal = document.getElementById("summary-subtotal");
 const summaryTotal = document.getElementById("summary-total");
@@ -37,9 +40,21 @@ function updateTotal() {
   cartEmpty.hidden = itemCount !== 0;
 }
 
-function removeItem(button) {
-  const item = button.closest("[data-item]");
+function removeItem(event) {
+  const item = event.currentTarget.closest("[data-item]");
   item.dataset.removed = "true";
   item.style.display = "none";
   updateTotal();
 }
+
+for (const select of quantitySelects) {
+  select.addEventListener("change", updateTotal);
+}
+
+for (const button of removeButtons) {
+  button.addEventListener("click", removeItem);
+}
+
+updateButton.addEventListener("click", updateTotal);
+
+updateTotal();

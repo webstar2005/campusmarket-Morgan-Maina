@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create an account | CampusMarket</title>
+  <meta name="description" content="Create a CampusMarket seller or buyer account. This form validates in your browser: required fields, email and phone formats, and password rules, all checked as you type.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="products.html">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="cart.html">Cart</a></li>
+          <li><a class="site-nav__link" href="register.html" aria-current="page">Register</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Register</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <p class="eyebrow">Seller and buyer accounts</p>
+        <h1>Create an account</h1>
+        <p class="lead">Every check on this form happens in your browser, the moment you finish
+          typing. Nothing is sent anywhere, because there is no server behind it yet.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="form-title">
+      <div class="container">
+        <div class="product-layout">
+          <form class="card" id="register-form" action="register.html" method="get" novalidate aria-labelledby="form-title">
+            <h2 class="card__title" id="form-title">Your details</h2>
+
+            <div class="notice notice--danger" id="form-errors" role="alert" tabindex="-1" hidden>
+              <p class="notice__title" id="form-errors-title">Fix these before continuing</p>
+              <ul class="error-list" id="form-error-list"></ul>
+            </div>
+
+            <div class="notice notice--success" id="form-success" hidden>
+              <p class="notice__title">Everything checks out</p>
+              <p>No problems found. A real account would be created here by PHP in Week 7.</p>
+            </div>
+
+            <div class="field" data-field="name">
+              <label class="field__label" for="full-name">Full name</label>
+              <input class="input" id="full-name" name="name" type="text" autocomplete="name"
+                     placeholder="e.g. Morgan Maina" required minlength="3" maxlength="60"
+                     aria-describedby="name-hint name-count name-error">
+              <p class="field__hint" id="name-hint">Both your first and last name, so buyers know
+                who they are meeting.</p>
+              <p class="field__meta" id="name-count" data-count-for="full-name">0 of 60 characters</p>
+              <p class="field__error" id="name-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="email">
+              <label class="field__label" for="email">Email address</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email"
+                     placeholder="you@example.com" required maxlength="80"
+                     aria-describedby="email-hint email-error">
+              <p class="field__hint" id="email-hint">Used to confirm the account. Never shown on a
+                listing.</p>
+              <p class="field__error" id="email-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label class="field__label" for="phone">Phone number</label>
+              <input class="input" id="phone" name="phone" type="tel" autocomplete="tel"
+                     placeholder="07XX XXX XXX" required inputmode="numeric" maxlength="13"
+                     pattern="0[17][0-9]{8}" aria-describedby="phone-hint phone-error">
+              <p class="field__hint" id="phone-hint">A Kenyan mobile number, so a buyer can call
+                about a pickup time.</p>
+              <p class="field__error" id="phone-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="password">
+              <label class="field__label" for="password">Password</label>
+              <div class="input-group">
+                <input class="input" id="password" name="password" type="password"
+                       autocomplete="new-password" required minlength="8" maxlength="72"
+                       aria-describedby="password-hint strength-text password-error">
+                <button class="btn btn--ghost input-group__action" type="button" id="password-toggle"
+                        aria-pressed="false" aria-controls="password">Show</button>
+              </div>
+              <p class="field__hint" id="password-hint">At least 8 characters, with a letter and a
+                number in it.</p>
+              <p class="strength" id="strength">
+                <span class="visually-hidden">Password strength</span>
+                <span class="strength__bar" id="strength-bar" data-score="0">
+                  <span class="strength__fill"></span>
+                </span>
+                <span class="strength__text" id="strength-text">Not typed yet</span>
+              </p>
+              <p class="field__error" id="password-error" hidden></p>
+            </div>
+
+            <div class="field" data-field="confirm">
+              <label class="field__label" for="confirm-password">Confirm password</label>
+              <input class="input" id="confirm-password" name="confirm" type="password"
+                     autocomplete="new-password" required maxlength="72"
+                     aria-describedby="confirm-hint confirm-error">
+              <p class="field__hint" id="confirm-hint">Type it again, exactly as you typed it
+                first.</p>
+              <p class="field__error" id="confirm-error" hidden></p>
+            </div>
+
+            <fieldset class="field fieldset" data-field="role" aria-describedby="role-hint role-error">
+              <legend class="field__label">I want to</legend>
+              <div class="choice-row">
+                <label class="choice" for="role-buy">
+                  <input type="radio" id="role-buy" name="role" value="buy">
+                  <span>Buy only</span>
+                </label>
+                <label class="choice" for="role-sell">
+                  <input type="radio" id="role-sell" name="role" value="sell">
+                  <span>Sell only</span>
+                </label>
+                <label class="choice" for="role-both">
+                  <input type="radio" id="role-both" name="role" value="both">
+                  <span>Both</span>
+                </label>
+              </div>
+              <p class="field__hint" id="role-hint">Pick at least one. You can change it later.</p>
+              <p class="field__error" id="role-error" hidden></p>
+            </fieldset>
+
+            <div class="field" data-field="terms">
+              <label class="choice" for="terms">
+                <input type="checkbox" id="terms" name="terms" value="yes"
+                       aria-describedby="terms-error">
+                <span>I will trade honestly, and I accept the pickup-only rule on the library steps.</span>
+              </label>
+              <p class="field__error" id="terms-error" hidden></p>
+            </div>
+
+            <div class="filters__actions">
+              <button class="btn btn--primary" type="submit">Create account</button>
+              <button class="btn btn--ghost" type="reset" id="clear-form">Clear the form</button>
+            </div>
+
+            <p class="field__hint" id="submit-note">This is a Week 3 demonstration. The form has
+              <code>novalidate</code> so the messages below come from
+              <code>js/register.js</code> and look the same in every browser. The
+              <code>required</code>, <code>minlength</code> and <code>pattern</code> attributes are
+              still in the markup, and PHP will repeat every one of these checks in Week 7.</p>
+          </form>
+
+          <div class="stack">
+            <div class="card">
+              <h2 class="card__title">What is being checked</h2>
+              <dl class="detail-list">
+                <div>
+                  <dt>Required</dt>
+                  <dd>Every field above, plus at least one role</dd>
+                </div>
+                <div>
+                  <dt>Format</dt>
+                  <dd>Email shape, and a Kenyan mobile number starting 07 or 01</dd>
+                </div>
+                <div>
+                  <dt>Custom rules</dt>
+                  <dd>Passwords must match, must run to 8 characters with a letter and a number, and the terms box must be ticked</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="card">
+              <h2 class="card__title">Try breaking it</h2>
+              <p class="card__text">Submit the empty form and every problem is listed at once.
+                Then fill one field properly and watch its message clear as soon as you leave
+                it.</p>
+              <button class="btn btn--secondary" type="button" id="details-toggle"
+                      aria-expanded="false" aria-controls="details-panel">What happens to my data?</button>
+              <div class="details" id="details-panel" hidden>
+                <p class="card__text">Right now, nothing. The checks run in your browser and stop
+                  there, which is exactly the point the course makes: client-side validation is
+                  for experience, not security.</p>
+                <p class="card__text">Someone can turn JavaScript off and post anything they like,
+                  so the same rules have to be repeated in PHP once there is a database. That
+                  arrives in Week 7.</p>
+              </div>
+            </div>
+
+            <div class="notice notice--info">
+              <p class="notice__title">Two layers of validation</p>
+              <p>The checks on this page are client-side, so they are fast and free. The real
+                safety check is server-side, and it needs a server. This week's version is a
+                rehearsal for that one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;3: static pages, filtering, cart maths and form validation.</p>
+    </div>
+  </footer>
+
+  <script src="js/register.js"></script>
+</body>
+</html>

@@ -22,7 +22,7 @@
 
       <form class="header-search" role="search" action="products.html" method="get">
         <label class="visually-hidden" for="site-search">Search listings</label>
-        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog" oninput="applyFilters()">
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
         <button class="btn btn--primary" type="submit">Search</button>
       </form>
 
@@ -32,6 +32,7 @@
           <li><a class="site-nav__link" href="products.html" aria-current="page">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
           <li><a class="site-nav__link" href="cart.html">Cart</a></li>
+          <li><a class="site-nav__link" href="register.html">Register</a></li>
           <li><a class="site-nav__link" href="about.html">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
         </ul>
@@ -70,10 +71,10 @@
             page.</p>
         </div>
 
-        <form class="filters" action="products.html" method="get" onsubmit="return false;">
+        <form class="filters" action="products.html" method="get" id="filter-form">
           <div class="field">
             <label class="field__label" for="filter-category">Category</label>
-            <select class="select" id="filter-category" name="category" onchange="applyFilters()">
+            <select class="select" id="filter-category" name="category">
               <option value="" selected>All categories</option>
               <option value="electronics">Electronics</option>
               <option value="textbooks">Textbooks</option>
@@ -85,7 +86,7 @@
 
           <div class="field">
             <label class="field__label" for="filter-condition">Condition</label>
-            <select class="select" id="filter-condition" name="condition" onchange="applyFilters()">
+            <select class="select" id="filter-condition" name="condition">
               <option value="" selected>Any condition</option>
               <option value="new">New</option>
               <option value="like-new">Like new</option>
@@ -96,7 +97,7 @@
 
           <div class="field">
             <label class="field__label" for="filter-sort">Sort by</label>
-            <select class="select" id="filter-sort" name="sort" onchange="sortProducts()">
+            <select class="select" id="filter-sort" name="sort">
               <option value="newest" selected>Newest first</option>
               <option value="price-asc">Price: low to high</option>
               <option value="price-desc">Price: high to low</option>
@@ -105,8 +106,8 @@
           </div>
 
           <div class="filters__actions">
-            <button class="btn btn--primary" type="submit" onclick="sortProducts(); applyFilters()">Apply filters</button>
-            <button class="btn btn--ghost" type="button" onclick="resetFilters()">Reset</button>
+            <button class="btn btn--primary" type="submit">Apply filters</button>
+            <button class="btn btn--ghost" type="button" id="filter-reset">Reset</button>
           </div>
         </form>
       </div>
@@ -290,12 +291,14 @@
           <li><a href="products.html">All products</a></li>
           <li><a href="products.html#categories">Categories</a></li>
           <li><a href="product.html">Product page</a></li>
+          <li><a href="cart.html">Cart</a></li>
         </ul>
       </nav>
 
       <nav aria-labelledby="footer-project">
         <h2 id="footer-project">Project</h2>
         <ul>
+          <li><a href="register.html">Register</a></li>
           <li><a href="about.html">About the build</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
@@ -305,7 +308,7 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;3: static pages, filtering, cart maths and form validation.</p>
     </div>
   </footer>
 
