@@ -32,6 +32,7 @@
           <li><a class="site-nav__link" href="products.html" aria-current="page">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
           <li><a class="site-nav__link" href="cart.html">Cart</a></li>
+          <li><a class="site-nav__link" href="gallery.html">Gallery</a></li>
           <li><a class="site-nav__link" href="register.html">Register</a></li>
           <li><a class="site-nav__link" href="about.html">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
@@ -71,9 +72,14 @@
 
         <div class="product-layout">
           <figure class="product-media">
-            <div class="media media--large media--electronics" role="img" aria-label="Placeholder for the product photo">Calculator</div>
-            <figcaption class="product-card__meta">Placeholder for the product photo. Real
-              images arrive with the product records in Week 7.</figcaption>
+            <div class="product-figure" id="product-figure">
+              <img src="img/calculator.svg" width="800" height="600"
+                alt="Illustration of a scientific calculator showing a display and a keypad of keys.">
+              <span class="badge badge--saved" id="watchlist-badge" hidden>Saved to watchlist</span>
+            </div>
+            <figcaption class="product-card__meta">A generated placeholder illustration, not a
+              real photograph. Seller photos arrive as <code>.webp</code> with a
+              <code>.jpg</code> fallback alongside the product records in Week 7.</figcaption>
           </figure>
 
           <div class="stack">
@@ -97,7 +103,15 @@
                 <a class="btn btn--primary" href="cart.html">Go to the cart</a>
               </form>
 
-              <a class="btn btn--secondary" href="contact.html">Ask the seller a question</a>
+              <div class="cluster">
+                <button class="btn btn--secondary" type="button" id="watchlist-toggle"
+                  aria-pressed="false">Save to watchlist</button>
+                <a class="btn btn--secondary" href="contact.html">Ask a question</a>
+              </div>
+
+              <p class="field__hint" id="watchlist-note">The watchlist is a Week 4
+                demonstration only. It changes the button and nothing else: there is no
+                database until Week 7, so reloading the page clears it.</p>
 
               <dl class="detail-list">
                 <div>
@@ -182,6 +196,29 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="sound-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Week 4 media</p>
+          <h2 id="sound-title">The pickup confirmation tone</h2>
+        </div>
+
+        <div class="player">
+          <audio controls preload="none" src="media/notify.wav" type="audio/wav">
+            Your browser cannot play this sound. You can
+            <a href="media/notify.wav">download notify.wav</a> instead.
+          </audio>
+          <p class="media-note">This is the short tone the app will play when a pickup is
+            confirmed. It is embedded with the <code>audio</code> tag, so play, pause and
+            volume come from the <code>controls</code> attribute rather than anything I had
+            to build. <code>preload="none"</code> means the 24 KB file is only fetched once
+            you press play, and it is never played automatically: browsers block that, and
+            surprise noise is unpleasant. The <a href="gallery.html">gallery</a> explains the
+            image and video rules that go with it.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--surface" aria-labelledby="related-title">
       <div class="container">
         <div class="section__head section__head--split">
@@ -255,6 +292,7 @@
           <li><a href="products.html#categories">Categories</a></li>
           <li><a href="product.html">Product page</a></li>
           <li><a href="cart.html">Cart</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
@@ -271,11 +309,12 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;3: static pages, filtering, cart maths and form validation.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;4: static pages, filtering, cart maths, form validation, animation and media.</p>
     </div>
   </footer>
 
   <script src="js/format.js"></script>
   <script src="js/product-total.js"></script>
+  <script src="js/watchlist.js"></script>
 </body>
 </html>

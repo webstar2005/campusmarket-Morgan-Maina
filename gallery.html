@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listing Gallery | CampusMarket</title>
+  <meta name="description" content="Browse all 8 CampusMarket listings as a picture gallery, with next and previous controls. Week 4: CSS transitions, keyframe animations, embedded media and responsive images.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="products.html">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="cart.html">Cart</a></li>
+          <li><a class="site-nav__link" href="gallery.html" aria-current="page">Gallery</a></li>
+          <li><a class="site-nav__link" href="register.html">Register</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">All products</a></li>
+        <li aria-current="page">Gallery</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <h1>Listing gallery</h1>
+        <p class="lead">All 8 listings as pictures, one at a time. This page is the Week 4
+          feature: a slideshow built from the same select and manipulate pattern used for
+          filtering and the cart, plus the media rules that keep images and sound from
+          breaking the layout.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="gallery-title">Listing pictures</h2>
+
+        <div class="gallery" id="gallery" data-gallery>
+          <div class="gallery__frame" id="gallery-frame" aria-live="polite">
+            <img class="gallery__slide is-active" data-gallery-slide
+              src="img/calculator.svg" width="800" height="600"
+              alt="Illustration of a scientific calculator showing a display and a keypad of keys.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/keyboard.svg" width="800" height="600"
+              alt="Illustration of a wireless keyboard beside a matching mouse.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/algorithms.svg" width="800" height="600"
+              alt="Illustration of a thick hardback book seen from the front.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/calculus.svg" width="800" height="600"
+              alt="Illustration of a textbook cover showing a curved graph.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/fridge.svg" width="800" height="600"
+              alt="Illustration of a small upright fridge with a freezer compartment at the top.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/lamp.svg" width="800" height="600"
+              alt="Illustration of a desk lamp with an angled arm and a cone shade.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/bike.svg" width="800" height="600"
+              alt="Illustration of a mountain bike with two wheels and a triangular frame.">
+
+            <img class="gallery__slide" data-gallery-slide
+              src="img/hoodie.svg" width="800" height="600"
+              alt="Illustration of a hooded sweatshirt with a front pocket.">
+          </div>
+
+          <div class="gallery__caption">
+            <p class="eyebrow" id="gallery-kicker">Listing 1 of 8</p>
+            <div class="gallery__caption-body" id="gallery-caption">
+              <h3>Scientific Calculator (Casio fx-991)</h3>
+              <p class="product-card__meta">Electronics &middot; Like new &middot; KSh 1,200
+                &middot; Brian K.</p>
+            </div>
+            <p><a class="card__link" href="product.html">Open this listing</a></p>
+          </div>
+
+          <div class="gallery__controls">
+            <div class="gallery__nav">
+              <button class="btn btn--secondary" type="button" data-gallery-prev>Previous</button>
+              <button class="btn btn--secondary" type="button" data-gallery-next>Next</button>
+            </div>
+
+            <ul class="gallery__dots" id="gallery-dots" aria-label="Choose a listing to show"></ul>
+          </div>
+
+          <p class="media-note">No JavaScript, no buttons, no dots: every picture is
+            <code>display: none</code> in the stylesheet except the first, so this is the
+            same fallback you would get with scripting turned off. Use the arrow keys when a
+            control has focus.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">How this works</p>
+          <h2 id="how-title">Select once, then manipulate the whole set</h2>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <h3 class="card__title">1. Select the set</h3>
+            <p class="card__text">One query grabs every slide by its shared
+              <code>data-gallery-slide</code> attribute, so the same code drives 8 pictures
+              or 80.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">2. Hide all, show one</h3>
+            <p class="card__text">Every slide gets <code>is-active</code> removed, then the
+              one matching the counter gets it back. CSS decides what <code>is-active</code>
+              looks like, so there are no inline styles.</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card__title">3. Wrap around</h3>
+            <p class="card__text">The counter is taken modulo the number of slides, so
+              Previous on the first picture lands on the last one instead of stopping.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="motion-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Transitions and animations</p>
+          <h2 id="motion-title">Two different jobs</h2>
+        </div>
+
+        <div class="product-layout">
+          <div class="prose">
+            <p><strong>A transition has exactly two states.</strong> It needs something to
+              trigger it, such as <code>:hover</code> or <code>:focus-within</code>, and it
+              runs once. Hover a product card in the
+              <a href="products.html">listings</a>: it lifts six pixels and the shadow
+              deepens, because the card declares <code>transition: transform, box-shadow</code>
+              and the hover rule only states the end state.</p>
+
+            <p><strong>An animation can have as many stops as you like and needs no
+              trigger.</strong> The small green dot beside the result count in
+              <a href="products.html">All products</a> pulses on a loop, from an
+              <code>@keyframes</code> block that defines the ring expanding and fading at
+              0%, 50% and 100%.</p>
+
+            <p><strong>JavaScript drives the third case.</strong> CSS cannot react to
+              &ldquo;saved this item&rdquo; on its own, so the watchlist button on the
+              <a href="product.html">product page</a> adds a class and lets CSS do the
+              rest. The pattern is the same select and manipulate one as the filter, just
+              changing a class instead of a value.</p>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3 class="card__title">Try the transitions</h3>
+              <ul class="cluster">
+                <li><a class="btn btn--secondary" href="products.html">Hover a listing</a></li>
+                <li><a class="btn btn--secondary" href="product.html">Hover a button</a></li>
+              </ul>
+              <p class="card__text">The first two are links and buttons you can move a
+                cursor over. The clearest transition on the page is the active dot under the
+                picture: it widens from a 10 pixel circle to a 30 pixel pill, and that width
+                change is transitioned rather than snapped. Step through the gallery and
+                watch it move.</p>
+            </div>
+
+            <div class="notice">
+              <p class="notice__title">Motion is optional</p>
+              <p>Every animation here stops if your operating system asks for reduced
+                motion. Nothing on this site is only available while it moves, and no
+                motion carries information that the text does not also carry.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="media-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Media on the page</p>
+          <h2 id="media-title">Rules that stop a layout breaking</h2>
+        </div>
+
+        <div class="product-layout">
+          <div class="prose">
+            <p><strong>Size images to the box they sit in, not the other way round.</strong>
+              One rule in the stylesheet does most of the work:</p>
+            <p><code>img, svg, video { max-width: 100%; height: auto; }</code></p>
+            <p>Without it, a single picture taken on a phone at full resolution is wider
+              than a phone screen and shoves the whole page sideways. This is the most
+              common way a marketplace page breaks on a small screen.</p>
+            <p><strong>Give every picture an alt attribute.</strong> It is not decoration.
+              A screen reader announces it, and it is the text that shows if the file fails
+              to load. The eight pictures above total 10 KB, which is why this page stays
+              quick; a single unoptimised phone photo is often larger than all the HTML and
+              CSS in this project put together.</p>
+            <p><strong>State the width and height too.</strong> The browser then reserves
+              the right box before the file arrives, so the caption does not jump down the
+              page as each picture loads.</p>
+          </div>
+
+          <div class="stack">
+            <div class="player">
+              <h3 class="card__title">Sound, with controls</h3>
+              <audio controls preload="none" src="media/notify.wav" type="audio/wav">
+                Your browser cannot play this sound.
+                <a href="media/notify.wav">Download notify.wav</a> instead.
+              </audio>
+              <p class="media-note">A 1.5 second confirmation tone, 24 KB, 8 kHz mono PCM.
+                The <code>controls</code> attribute gives play, pause and volume without
+                building any of it, and <code>preload="none"</code> means the file is only
+                fetched if you actually press play. Autoplay is deliberately not used:
+                browsers block it, and it is rude.</p>
+            </div>
+
+            <div class="card">
+              <h3 class="card__title">Why SVG, and what changes later</h3>
+              <p class="card__text">There are no real photographs yet, so these eight
+                pictures are vector placeholders I generated. They are a few hundred bytes
+                each and stay sharp at any size. When real seller photos arrive with the
+                database in Week 7, they will be <code>.webp</code> with a
+                <code>.jpg</code> fallback, resized to the box they display in. The listing
+                cards still use the lightweight coloured blocks, so the catalog pages do
+                not pay for eight downloads.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="web2-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Web 2.0</p>
+          <h2 id="web2-title">Not this week, but worth naming</h2>
+        </div>
+
+        <div class="product-layout">
+          <div class="prose">
+            <p>Web 1.0 was one way: the site published, you read. Web 2.0 is the shift to
+              sites you take part in, where visitors contribute the content too. Reviews,
+              ratings, comments and uploads are all Web 2.0.</p>
+            <p>CampusMarket is still a Web 1.0 site. Every listing here is hard written into
+              the HTML, and nothing anyone does can change it for anyone else. That is
+              honest at this stage rather than a shortcut: real reviews need a database to
+              store them, and that is Week 9. Until then a rating can only be decoration,
+              so this page deliberately does not fake one.</p>
+          </div>
+
+          <div class="stack">
+            <div class="card card--flush">
+              <div class="media media--textbooks" role="img" aria-label="Placeholder graphic standing in for a future review panel">Reviews</div>
+              <div class="card__body">
+                <h3 class="card__title">Star ratings: what they will need</h3>
+                <p class="card__text"><span class="star-row" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                  <span class="media-note">A rating that means nothing yet. The real version
+                  needs a <code>reviews</code> table, a one-rating-per-user rule, and a
+                  decision about whether sellers can reply.</span></p>
+              </div>
+            </div>
+            <p class="media-note">The stars above are marked
+              <code>aria-hidden</code> on purpose: a screen reader should hear &ldquo;Reviews:
+              what they will need&rdquo; rather than five meaningless star characters.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;4: static pages, filtering, cart maths, form validation, animation and media.</p>
+    </div>
+  </footer>
+
+  <script src="js/gallery.js"></script>
+</body>
+</html>

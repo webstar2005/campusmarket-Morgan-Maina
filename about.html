@@ -32,6 +32,7 @@
           <li><a class="site-nav__link" href="products.html">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
           <li><a class="site-nav__link" href="cart.html">Cart</a></li>
+          <li><a class="site-nav__link" href="gallery.html">Gallery</a></li>
           <li><a class="site-nav__link" href="register.html">Register</a></li>
           <li><a class="site-nav__link" href="about.html" aria-current="page">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
@@ -104,11 +105,15 @@
 
           <article class="card">
             <h3 class="card__title">Still the same page</h3>
-            <p class="card__text">Filtering, cart totals and form validation are JavaScript
-              behaviours, not new markup. <code>js/</code> now holds five small files and
-              <code>register.html</code> is the only page added.</p>
+            <p class="card__text">Filtering, cart totals, form validation and the gallery are
+              JavaScript behaviours and styles, not new markup. <code>js/</code> now holds
+              seven small files, and <code>register.html</code> and <code>gallery.html</code>
+              are the only pages added since Week 1.</p>
             <p class="card__text">The listing data stays in the HTML for now, which is why
-              <code>products.html</code> carries the same eight listings it had in Week 1.</p>
+              <code>products.html</code> carries the same eight listings it had in Week 1.
+              Motion is progressive too: if a browser blocks the stylesheet the gallery
+              still shows its first picture, and if scripting is off the buttons do nothing
+              rather than the page breaking.</p>
           </article>
         </div>
       </div>
@@ -129,12 +134,17 @@
             <dt>Week 3</dt>
             <dd>Events and form validation: <code>addEventListener</code> replaces the inline
               handlers, and a registration form checks required fields, formats and its own
-              rules. This build.</dd>
+              rules.</dd>
           </div>
           <div>
-            <dt>Weeks 4&ndash;5</dt>
-            <dd>Animation, media and Web 2.0, then the rest of the interaction layer before the
-              first assessment.</dd>
+            <dt>Week 4</dt>
+            <dd>Motion and media: CSS transitions and <code>@keyframes</code> animations, a
+              picture gallery built from the same select and manipulate pattern, and embedded
+              audio with a responsive image rule. This build.</dd>
+          </div>
+          <div>
+            <dt>Week 5</dt>
+            <dd>AJAX and JSON, then the foundation gate before the first assessment.</dd>
           </div>
           <div>
             <dt>Week 6</dt>
@@ -219,6 +229,7 @@
           <li><a href="products.html#categories">Categories</a></li>
           <li><a href="product.html">Product page</a></li>
           <li><a href="cart.html">Cart</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
@@ -235,7 +246,7 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;3: static pages, filtering, cart maths and form validation.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;4: static pages, filtering, cart maths, form validation, animation and media.</p>
     </div>
   </footer>
 </body>
