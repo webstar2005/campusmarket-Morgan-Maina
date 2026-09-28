@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About the build | CampusMarket</title>
+  <meta name="description" content="How CampusMarket is built week by week, and why the catalog is static HTML and CSS right now.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="products.html">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="about.html" aria-current="page">About</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">About</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <p class="eyebrow">The project</p>
+        <h1>About this build</h1>
+        <p class="lead">CampusMarket is one running project for the whole semester. Each week adds
+          one layer to the same app, so nothing is thrown away at the end of a topic.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="what-title">
+      <div class="container">
+        <h2 id="what-title">What CampusMarket is</h2>
+        <div class="prose">
+          <p>A marketplace where students buy and sell second-hand items to each other:
+            textbooks, calculators, dorm fridges, desk lamps, bicycles and clothing. A catalog, a
+            product page, a cart, student accounts and a checkout, all pointing at one shared set
+            of product records.</p>
+          <p>It is deliberately a small system with the same moving parts as a real store, because
+            every part maps to something in the course: static pages, client scripting, server
+            scripting and a database.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight section--surface" aria-labelledby="static-title">
+      <div class="container">
+        <h2 id="static-title">Why the catalog is static right now</h2>
+        <p class="lead">The server sends every page here exactly as it is stored in the folder, so
+          every visitor sees the same eight listings. That is the starting point, not the finish
+          line.</p>
+
+        <div class="grid grid--2">
+          <article class="card">
+            <h3 class="card__title">Static, Weeks 1&ndash;4</h3>
+            <p class="card__text">Hand-written HTML and one stylesheet. Listings live in the
+              markup itself. No server-side language, no database, nothing to install.</p>
+            <p class="card__text">Good for structure, semantics, layout and accessibility, and it
+              is the version every team member can build alone.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Dynamic, Week 7 onward</h3>
+            <p class="card__text">PHP reads each request and queries MySQL, so listings come from
+              a real table and the same page serves every student differently.</p>
+            <p class="card__text">Sign-in, sessions, a cart that survives a page reload and orders
+              all appear once the data is live.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="roadmap-title">
+      <div class="container">
+        <h2 id="roadmap-title">How each week adds to it</h2>
+        <p class="lead">The same project across fourteen weeks, one topic at a time.</p>
+
+        <dl class="detail-list">
+          <div>
+            <dt>Weeks 1&ndash;4</dt>
+            <dd>Static catalog: home page, product listing, category pages and a product page in plain HTML and CSS.</dd>
+          </div>
+          <div>
+            <dt>Weeks 2&ndash;5</dt>
+            <dd>Client scripting: live search, filters, sorting and cart totals calculated in the browser.</dd>
+          </div>
+          <div>
+            <dt>Week 6</dt>
+            <dd>CAT 1: the individual build is assessed and signed off before any team work starts.</dd>
+          </div>
+          <div>
+            <dt>Weeks 7&ndash;10</dt>
+            <dd>Server scripting and database: PHP pages, MySQL tables, registration, sign-in, sessions and a persistent cart.</dd>
+          </div>
+          <div>
+            <dt>Week 11</dt>
+            <dd>CAT 2: the merged team version is assessed against the full brief.</dd>
+          </div>
+          <div>
+            <dt>Weeks 12&ndash;14</dt>
+            <dd>Checkout, order management, seller tools, documentation and the final defence.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--tight section--surface" aria-labelledby="how-title">
+      <div class="container">
+        <h2 id="how-title">How the current pages are put together</h2>
+
+        <div class="grid grid--3">
+          <div class="promise">
+            <p class="promise__title">Semantic HTML</p>
+            <p class="promise__text">One header, one nav, one main, one footer, one heading per
+              page in order, and landmarks a screen reader can jump between.</p>
+          </div>
+          <div class="promise">
+            <p class="promise__title">One stylesheet</p>
+            <p class="promise__text">Colours, spacing and type sizes live as custom properties at
+              the top of <code>css/style.css</code>, so a change there restyles every page.</p>
+          </div>
+          <div class="promise">
+            <p class="promise__title">No dependencies</p>
+            <p class="promise__text">No framework, no build step, no package manager. Open any
+              file in a browser and it works, which keeps the focus on the course material.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="open-title">
+      <div class="container">
+        <div class="callout">
+          <div class="stack">
+            <p class="eyebrow">Open source</p>
+            <h2 id="open-title">The code is public</h2>
+            <p>Every page in this build is committed to GitHub as it is written, so the history
+              shows the project growing week by week. In Week 7 this repository becomes the
+              starting point for the team version.</p>
+          </div>
+          <a class="btn btn--secondary" href="https://github.com/webstar2005/campusmarket-Morgan-Maina">View the repository</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+    </div>
+  </footer>
+</body>
+</html>

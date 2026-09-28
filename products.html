@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All products | CampusMarket</title>
+  <meta name="description" content="Browse every listing on CampusMarket: textbooks, electronics, dorm and living gear, transport and clothing.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="products.html" aria-current="page">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">All products</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <h1>All products</h1>
+        <p class="lead">Eight listings from students on campus, grouped by category. Every
+          page in this build is a hand-written HTML file, so this is the complete catalog.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="filter-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="filter-title">Filter and sort listings</h2>
+
+        <div class="notice notice--info">
+          <p class="notice__title">Filters are visual only for now</p>
+          <p>The controls below are real form elements, but nothing filters yet. Live filtering
+            and sorting are added in the JavaScript weeks, and the database does the rest from
+            Week 7 onward.</p>
+        </div>
+
+        <form class="filters" action="products.html" method="get">
+          <div class="field">
+            <label class="field__label" for="filter-category">Category</label>
+            <select class="select" id="filter-category" name="category">
+              <option value="" selected>All categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="textbooks">Textbooks</option>
+              <option value="dorm-living">Dorm &amp; living</option>
+              <option value="transport">Transport</option>
+              <option value="clothing">Clothing</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="filter-condition">Condition</label>
+            <select class="select" id="filter-condition" name="condition">
+              <option value="" selected>Any condition</option>
+              <option value="new">New</option>
+              <option value="like-new">Like new</option>
+              <option value="used-good">Used &middot; good</option>
+              <option value="used-fair">Used &middot; fair</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="filter-sort">Sort by</label>
+            <select class="select" id="filter-sort" name="sort">
+              <option value="newest" selected>Newest first</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+
+          <div class="filters__actions">
+            <button class="btn btn--primary" type="submit">Apply filters</button>
+            <a class="btn btn--ghost" href="products.html">Reset</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <h2 class="title-sm" id="categories-title">Jump to a category</h2>
+        <ul class="cluster">
+          <li><a class="chip chip--primary" href="category-electronics.html">Electronics (2)</a></li>
+          <li><a class="chip chip--primary" href="category-textbooks.html">Textbooks (2)</a></li>
+          <li><a class="chip chip--primary" href="category-dorm-living.html">Dorm &amp; living (2)</a></li>
+          <li><a class="chip chip--primary" href="category-transport.html">Transport (1)</a></li>
+          <li><a class="chip chip--primary" href="category-clothing.html">Clothing (1)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="listings-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="listings-title">Listings</h2>
+
+        <div class="results-bar">
+          <p>Showing <strong>1&ndash;8</strong> of <strong>8</strong> listings</p>
+          <p>Prices in KSh, pickup on campus only</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="product-card">
+            <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Calculator</div>
+            <div class="product-card__body">
+              <span class="chip chip--primary">Like new</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Scientific Calculator (Casio fx-991)</a>
+              </h3>
+              <p class="product-card__excerpt">Barely used, bought for a course I dropped. All
+                functions working, includes the original case and manual.</p>
+              <p class="price">KSh 1,200</p>
+              <p class="product-card__meta">Brian K. &middot; 2 available</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Keyboard</div>
+            <div class="product-card__body">
+              <span class="chip chip--primary">Like new</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Wireless Keyboard &amp; Mouse Combo</a>
+              </h3>
+              <p class="product-card__excerpt">Used for one semester only. Battery life is great,
+                connects through a 2.4GHz USB dongle.</p>
+              <p class="price">KSh 2,500</p>
+              <p class="product-card__meta">Grace A. &middot; 3 available</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--textbooks" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+            <div class="product-card__body">
+              <span class="chip">Used &middot; good</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Introduction to Algorithms (CLRS)</a>
+              </h3>
+              <p class="product-card__excerpt">The classic computer science algorithms textbook.
+                Some pages have pencil notes, no torn pages.</p>
+              <p class="price">KSh 2,200</p>
+              <p class="product-card__meta">Faraj H. &middot; 1 left</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--textbooks" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+            <div class="product-card__body">
+              <span class="chip">Used &middot; good</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Calculus: Early Transcendentals (8th Ed.)</a>
+              </h3>
+              <p class="product-card__excerpt">Standard first-year calculus textbook. Minor
+                highlighting in chapters 1 to 4, otherwise clean, with the solution booklet.</p>
+              <p class="price">KSh 1,800</p>
+              <p class="product-card__meta">Amina W. &middot; 1 left</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--dorm-living" role="img" aria-label="Placeholder for a product photo">Fridge</div>
+            <div class="product-card__body">
+              <span class="chip chip--sale">Used &middot; fair</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Mini Dorm Fridge (45L)</a>
+              </h3>
+              <p class="product-card__excerpt">Small fridge, perfect for a hostel room. Works
+                fine, slightly noisy compressor. Buyer collects from the campus gate.</p>
+              <p class="price">KSh 6,500</p>
+              <p class="product-card__meta">Chiara M. &middot; 1 left</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--dorm-living" role="img" aria-label="Placeholder for a product photo">Desk lamp</div>
+            <div class="product-card__body">
+              <span class="chip chip--primary">New</span>
+              <h3 class="product-card__title">
+                <a href="product.html">LED Desk Lamp with USB Port</a>
+              </h3>
+              <p class="product-card__excerpt">Adjustable brightness and a built-in USB charging
+                port. Great for late-night study sessions.</p>
+              <p class="price">KSh 900</p>
+              <p class="product-card__meta">Eva N. &middot; 5 available</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--transport" role="img" aria-label="Placeholder for a product photo">Bicycle</div>
+            <div class="product-card__body">
+              <span class="chip">Used &middot; good</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Mountain Bike &ndash; Size M</a>
+              </h3>
+              <p class="product-card__excerpt">Reliable ride for getting around campus. New brake
+                pads fitted last month, lock included.</p>
+              <p class="price">KSh 9,500</p>
+              <p class="product-card__meta">Denis O. &middot; 1 left</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--clothing" role="img" aria-label="Placeholder for a product photo">Hoodie</div>
+            <div class="product-card__body">
+              <span class="chip chip--primary">New</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Campus Hoodie &ndash; Navy (Size L)</a>
+              </h3>
+              <p class="product-card__excerpt">Official campus store hoodie, never worn, wrong
+                size ordered. Tags still attached.</p>
+              <p class="price">KSh 1,500</p>
+              <p class="product-card__meta">Ian M. &middot; 1 left</p>
+            </div>
+          </article>
+        </div>
+
+        <nav aria-label="Pagination">
+          <ul class="pagination pagination--center">
+            <li class="pagination__item--disabled">
+              <span class="pagination__link" aria-hidden="true">Prev</span>
+            </li>
+            <li><a class="pagination__link" href="products.html" aria-current="page">1</a></li>
+            <li class="pagination__item--disabled">
+              <span class="pagination__link" aria-hidden="true">Next</span>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+    </div>
+  </footer>
+</body>
+</html>

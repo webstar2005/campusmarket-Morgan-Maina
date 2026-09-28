@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusMarket | Buy and sell on campus</title>
+  <meta name="description" content="CampusMarket is a student marketplace for buying and selling used textbooks, electronics, dorm gear and more on campus.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
+          <li><a class="site-nav__link" href="products.html">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow">Student to student</p>
+          <h1>Buy and sell with the students on your campus</h1>
+          <p class="lead">CampusMarket is a campus marketplace where students hand over
+            textbooks, electronics, dorm gear and bicycles directly to each other, with
+            hand-overs arranged in common areas on campus.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="products.html">Browse the catalog</a>
+            <a class="btn btn--secondary" href="#how-it-works">How it works</a>
+          </div>
+          <ul class="hero__stats">
+            <li>
+              <span class="stat__value">5</span>
+              <span class="stat__label">Categories</span>
+            </li>
+            <li>
+              <span class="stat__value">8</span>
+              <span class="stat__label">Live listings</span>
+            </li>
+            <li>
+              <span class="stat__value">100%</span>
+              <span class="stat__label">Hand-built HTML and CSS</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="hero__panel" aria-label="Example listing">
+          <p class="hero__panel-bar">Listing preview</p>
+          <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Calculator</div>
+          <div class="hero__panel-body">
+            <span class="chip chip--primary">Like new</span>
+            <h2 class="product-card__title">Scientific Calculator (Casio fx-991)</h2>
+            <p class="price">KSh 1,200</p>
+            <p class="product-card__meta">Posted by Brian K. &middot; 2 available</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works" aria-labelledby="how-it-works-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">The flow</p>
+          <h2 id="how-it-works-title">How CampusMarket works</h2>
+          <p>Four steps, from browsing a listing to meeting the seller. Every step is built
+            on the same catalog, so nothing here is a dead end.</p>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="card card--link">
+            <span class="feature__icon" aria-hidden="true">1</span>
+            <h3 class="card__title">Browse the catalog</h3>
+            <p class="card__text">Filter listings by category, price and condition, then open
+              a single product page for the full description.</p>
+            <span class="chip">Weeks 1&ndash;4</span>
+          </article>
+
+          <article class="card card--link">
+            <span class="feature__icon" aria-hidden="true">2</span>
+            <h3 class="card__title">Search and compare</h3>
+            <p class="card__text">Live search and sorting arrive in the browser, so results
+              narrow down without reloading the page.</p>
+            <span class="chip">Weeks 2&ndash;5</span>
+          </article>
+
+          <article class="card card--link">
+            <span class="feature__icon" aria-hidden="true">3</span>
+            <h3 class="card__title">Sign in and keep a cart</h3>
+            <p class="card__text">Accounts, sessions and a persistent cart turn the catalog
+              into a real shop backed by a database.</p>
+            <span class="chip">Week 7 onward</span>
+          </article>
+
+          <article class="card card--link">
+            <span class="feature__icon" aria-hidden="true">4</span>
+            <h3 class="card__title">Check out and meet up</h3>
+            <p class="card__text">The seller sees the order, picks a hand-over point on
+              campus, and both sides get a confirmation.</p>
+            <span class="chip">Weeks 9&ndash;10</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Categories</p>
+          <h2 id="categories-title">What students are selling</h2>
+          <p>Five categories cover the items that change hands most on campus.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <a class="category-card" href="category-electronics.html">
+            <div class="media media--electronics" role="img" aria-label="Placeholder for the electronics category">Electronics</div>
+            <div>
+              <p class="category-card__name">Electronics</p>
+              <p class="category-card__meta">Calculators, keyboards, chargers and small devices</p>
+            </div>
+            <p class="card__link">2 listings</p>
+          </a>
+
+          <a class="category-card" href="category-textbooks.html">
+            <div class="media media--textbooks" role="img" aria-label="Placeholder for the textbooks category">Textbooks</div>
+            <div>
+              <p class="category-card__name">Textbooks</p>
+              <p class="category-card__meta">Course texts, solution booklets and past papers</p>
+            </div>
+            <p class="card__link">2 listings</p>
+          </a>
+
+          <a class="category-card" href="category-dorm-living.html">
+            <div class="media media--dorm-living" role="img" aria-label="Placeholder for the dorm and living category">Dorm &amp; living</div>
+            <div>
+              <p class="category-card__name">Dorm &amp; living</p>
+              <p class="category-card__meta">Fridges, lamps and furniture for small rooms</p>
+            </div>
+            <p class="card__link">2 listings</p>
+          </a>
+
+          <a class="category-card" href="category-transport.html">
+            <div class="media media--transport" role="img" aria-label="Placeholder for the transport category">Transport</div>
+            <div>
+              <p class="category-card__name">Transport</p>
+              <p class="category-card__meta">Bicycles, helmets and gear for getting around</p>
+            </div>
+            <p class="card__link">1 listing</p>
+          </a>
+
+          <a class="category-card" href="category-clothing.html">
+            <div class="media media--clothing" role="img" aria-label="Placeholder for the clothing category">Clothing</div>
+            <div>
+              <p class="category-card__name">Clothing</p>
+              <p class="category-card__meta">Hoodies, lab coats and worn-in favourites</p>
+            </div>
+            <p class="card__link">1 listing</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section__head section__head--split">
+          <div>
+            <p class="eyebrow">Featured</p>
+            <h2 id="featured-title">Fresh on the board</h2>
+          </div>
+          <a class="card__link" href="products.html">See all 8 listings</a>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="product-card">
+            <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Calculator</div>
+            <div class="product-card__body">
+              <span class="chip chip--primary">Like new</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Scientific Calculator (Casio fx-991)</a>
+              </h3>
+              <p class="price">KSh 1,200</p>
+              <p class="product-card__meta">Brian K. &middot; 2 available</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--textbooks" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+            <div class="product-card__body">
+              <span class="chip">Used &middot; good</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Introduction to Algorithms (CLRS)</a>
+              </h3>
+              <p class="price">KSh 2,200</p>
+              <p class="product-card__meta">Faraj H. &middot; 1 left</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--dorm-living" role="img" aria-label="Placeholder for a product photo">Fridge</div>
+            <div class="product-card__body">
+              <span class="chip chip--sale">Used &middot; fair</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Mini Dorm Fridge (45L)</a>
+              </h3>
+              <p class="price">KSh 6,500</p>
+              <p class="product-card__meta">Chiara M. &middot; 1 left</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="media media--transport" role="img" aria-label="Placeholder for a product photo">Bicycle</div>
+            <div class="product-card__body">
+              <span class="chip">Used &middot; good</span>
+              <h3 class="product-card__title">
+                <a href="product.html">Mountain Bike &ndash; Size M</a>
+              </h3>
+              <p class="price">KSh 9,500</p>
+              <p class="product-card__meta">Denis O. &middot; 1 left</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight section--surface" aria-labelledby="promises-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="promises-title">Why shop on CampusMarket</h2>
+        <div class="grid grid--3">
+          <div class="promise">
+            <p class="promise__title">Student sellers only</p>
+            <p class="promise__text">Every listing belongs to a student account, so you always
+              know who you are meeting and which course they are in.</p>
+          </div>
+          <div class="promise">
+            <p class="promise__title">Hand-overs on campus</p>
+            <p class="promise__text">Agree on the library steps, the hostel gate or the dining
+              hall. No shipping, no courier, no waiting for a parcel.</p>
+          </div>
+          <div class="promise">
+            <p class="promise__title">Honest conditions</p>
+            <p class="promise__text">Condition is stated on every listing, from brand new to
+              used and fair, so you know what to expect before you walk over.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="static-title">
+      <div class="container">
+        <div class="callout">
+          <div class="stack">
+            <p class="eyebrow">How this page was built</p>
+            <h2 id="static-title">Every page here is static, on purpose</h2>
+            <p>CampusMarket is currently hand-written HTML and CSS. The server sends this file
+              exactly as it sits in the folder, so every student sees the same catalog. Later in
+              the semester the listings move into MySQL and the pages get generated per request
+              and per student. Same design, one more layer underneath.</p>
+          </div>
+          <a class="btn btn--secondary" href="about.html">Read more about the build</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+    </div>
+  </footer>
+</body>
+</html>

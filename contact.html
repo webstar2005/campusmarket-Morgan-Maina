@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | CampusMarket</title>
+  <meta name="description" content="Contact the CampusMarket project about a listing, a problem with the site, or the Week 7 team build.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="products.html">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="index.html">Home</a></li>
+        <li aria-current="page">Contact</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <p class="eyebrow">Get in touch</p>
+        <h1>Contact</h1>
+        <p class="lead">Questions about a listing, a problem with the site, or the Week 7 team
+          build. The form below is a static mock, so use the repository for anything urgent.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="form-title">
+      <div class="container">
+        <div class="product-layout">
+          <form class="card" action="contact.html" method="get" aria-labelledby="form-title">
+            <h2 class="card__title" id="form-title">Send a message</h2>
+
+            <div class="field">
+              <label class="field__label" for="contact-name">Your name</label>
+              <input class="input" id="contact-name" name="name" type="text" autocomplete="name" placeholder="e.g. Morgan Maina">
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-email">Email address</label>
+              <input class="input" id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="email-hint">
+              <p class="field__hint" id="email-hint">Used to reply only, never published.</p>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-subject">What is it about?</label>
+              <select class="select" id="contact-subject" name="subject">
+                <option value="listing" selected>A listing I saw</option>
+                <option value="problem">Something is broken</option>
+                <option value="team">The Week 7 team build</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-message">Message</label>
+              <textarea class="textarea" id="contact-message" name="message" placeholder="Tell us what you need"></textarea>
+            </div>
+
+            <button class="btn btn--primary" type="submit" disabled aria-describedby="send-note">Send message</button>
+            <button class="btn btn--ghost" type="reset">Clear the form</button>
+
+            <p class="field__hint" id="send-note">Sending needs a server, which arrives with the
+              PHP and database weeks. Nothing you type here is stored or sent.</p>
+          </form>
+
+          <div class="stack">
+            <div class="card">
+              <h2 class="card__title">Working channels today</h2>
+              <ul>
+                <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Open an issue on the repository</a> for bugs and listing corrections</li>
+                <li>Pull requests for Week 7 merge ideas once the team is formed</li>
+                <li>In person at the library steps, which is also the default pickup point</li>
+              </ul>
+            </div>
+
+            <div class="notice notice--info">
+              <p class="notice__title">Privacy for now</p>
+              <p>This page has no server behind it, so no form data is collected, stored or
+                emailed. When messaging goes live it will be handled by a database with the same
+                rules the rest of the project uses.</p>
+            </div>
+
+            <div class="promise">
+              <p class="promise__title">What to include</p>
+              <p class="promise__text">The page you were on, the listing or item ID such as
+                CM-0002, what you expected and what happened, and a screenshot if it is a
+                layout problem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+    </div>
+  </footer>
+</body>
+</html>
