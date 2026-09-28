@@ -31,6 +31,7 @@
           <li><a class="site-nav__link" href="index.html" aria-current="page">Home</a></li>
           <li><a class="site-nav__link" href="products.html">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="cart.html">Cart</a></li>
           <li><a class="site-nav__link" href="about.html">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
         </ul>
@@ -61,8 +62,8 @@
               <span class="stat__label">Live listings</span>
             </li>
             <li>
-              <span class="stat__value">100%</span>
-              <span class="stat__label">Hand-built HTML and CSS</span>
+              <span class="stat__value">0</span>
+              <span class="stat__label">Delivery fees</span>
             </li>
           </ul>
         </div>
@@ -95,22 +96,22 @@
             <h3 class="card__title">Browse the catalog</h3>
             <p class="card__text">Filter listings by category, price and condition, then open
               a single product page for the full description.</p>
-            <span class="chip">Weeks 1&ndash;4</span>
+            <span class="chip">Week 1</span>
           </article>
 
           <article class="card card--link">
             <span class="feature__icon" aria-hidden="true">2</span>
-            <h3 class="card__title">Search and compare</h3>
-            <p class="card__text">Live search and sorting arrive in the browser, so results
-              narrow down without reloading the page.</p>
-            <span class="chip">Weeks 2&ndash;5</span>
+            <h3 class="card__title">Search and sort instantly</h3>
+            <p class="card__text">Type in the search box or change a filter and the listings
+              narrow down on the spot, without the page reloading.</p>
+            <span class="chip">Week 2</span>
           </article>
 
           <article class="card card--link">
             <span class="feature__icon" aria-hidden="true">3</span>
             <h3 class="card__title">Sign in and keep a cart</h3>
-            <p class="card__text">Accounts, sessions and a persistent cart turn the catalog
-              into a real shop backed by a database.</p>
+            <p class="card__text">Accounts, sessions and a cart that survives a page reload turn
+              the catalog into a real shop backed by a database.</p>
             <span class="chip">Week 7 onward</span>
           </article>
 
@@ -271,12 +272,15 @@
       <div class="container">
         <div class="callout">
           <div class="stack">
-            <p class="eyebrow">How this page was built</p>
-            <h2 id="static-title">Every page here is static, on purpose</h2>
-            <p>CampusMarket is currently hand-written HTML and CSS. The server sends this file
-              exactly as it sits in the folder, so every student sees the same catalog. Later in
-              the semester the listings move into MySQL and the pages get generated per request
-              and per student. Same design, one more layer underneath.</p>
+            <p class="eyebrow">How this page behaves</p>
+            <h2 id="static-title">The files are still static. The page is not.</h2>
+            <p>Every page here is hand-written HTML and CSS, and the server sends each file out
+              exactly as it sits in the folder. But JavaScript now runs in your browser: filters,
+              sorting and cart totals recalculate instantly, and nothing is sent anywhere to make
+              that happen. That is client-side scripting.</p>
+            <p>From Week 7 the listings move into MySQL and PHP generates each page per request,
+              which is server-side scripting. The design you see will not change, but the layer
+              underneath it will.</p>
           </div>
           <a class="btn btn--secondary" href="about.html">Read more about the build</a>
         </div>
@@ -320,7 +324,7 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
     </div>
   </footer>
 </body>

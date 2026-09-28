@@ -31,6 +31,7 @@
           <li><a class="site-nav__link" href="index.html">Home</a></li>
           <li><a class="site-nav__link" href="products.html" aria-current="page">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="cart.html">Cart</a></li>
           <li><a class="site-nav__link" href="about.html">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
         </ul>
@@ -76,24 +77,24 @@
 
           <div class="stack">
             <div class="buy-box">
-              <p class="price">KSh 1,200</p>
+              <p class="price" id="product-price" data-price="1200">KSh 1,200</p>
               <p class="product-card__meta">Pickup on campus only. No delivery, no shipping
                 charges.</p>
 
               <form class="stack" action="products.html" method="get">
                 <div class="field">
                   <label class="field__label" for="quantity">Quantity</label>
-                  <select class="select" id="quantity" name="quantity">
+                  <select class="select" id="quantity" name="quantity" onchange="updateLineTotal()">
                     <option value="1" selected>1</option>
                     <option value="2">2</option>
                   </select>
                   <p class="field__hint" id="cart-note">Two are available from this seller.</p>
                 </div>
-                <button class="btn btn--primary" type="submit" disabled aria-describedby="cart-note">Add to cart</button>
+                <p class="price" id="line-total">KSh 1,200</p>
+                <p class="field__hint">Quantity times price, recalculated in your browser each
+                  time you change the quantity.</p>
+                <a class="btn btn--primary" href="cart.html">Go to the cart</a>
               </form>
-
-              <p class="field__hint">The cart is not built yet. It arrives with the JavaScript
-                weeks, and gains accounts, sessions and a database from Week 7.</p>
 
               <a class="btn btn--secondary" href="contact.html">Ask the seller a question</a>
 
@@ -267,8 +268,11 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
     </div>
   </footer>
+
+  <script src="js/format.js"></script>
+  <script src="js/product-total.js"></script>
 </body>
 </html>

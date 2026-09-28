@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About the build | CampusMarket</title>
-  <meta name="description" content="How CampusMarket is built week by week, and why the catalog is static HTML and CSS right now.">
+    <meta name="description" content="How CampusMarket is built week by week: static HTML and CSS from Week 1, then client-side JavaScript for filtering and cart totals in Week 2.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,6 +31,7 @@
           <li><a class="site-nav__link" href="index.html">Home</a></li>
           <li><a class="site-nav__link" href="products.html">Products</a></li>
           <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="cart.html">Cart</a></li>
           <li><a class="site-nav__link" href="about.html" aria-current="page">About</a></li>
           <li><a class="site-nav__link" href="contact.html">Contact</a></li>
         </ul>
@@ -74,26 +75,37 @@
 
     <section class="section section--tight section--surface" aria-labelledby="static-title">
       <div class="container">
-        <h2 id="static-title">Why the catalog is static right now</h2>
-        <p class="lead">The server sends every page here exactly as it is stored in the folder, so
-          every visitor sees the same eight listings. That is the starting point, not the finish
-          line.</p>
+        <h2 id="static-title">Two kinds of scripting, and which one runs now</h2>
+        <p class="lead">Week 2 is the first week the pages do something on their own. The change is
+          a new layer, not a rewrite: the same eight listings, the same design, a little
+          JavaScript.</p>
 
-        <div class="grid grid--2">
+        <div class="grid grid--3">
           <article class="card">
-            <h3 class="card__title">Static, Weeks 1&ndash;4</h3>
-            <p class="card__text">Hand-written HTML and one stylesheet. Listings live in the
-              markup itself. No server-side language, no database, nothing to install.</p>
-            <p class="card__text">Good for structure, semantics, layout and accessibility, and it
-              is the version every team member can build alone.</p>
+            <h3 class="card__title">Client-side, Week 2</h3>
+            <p class="card__text">The HTML files still arrive exactly as they are stored, and the
+              server knows nothing about the change. <code>js/filter.js</code> and
+              <code>js/cart.js</code> run in the browser, find elements on the page, and rewrite
+              them as you type.</p>
+            <p class="card__text">No request goes out, so the results appear instantly. Turn
+              scripting off and the catalog still loads, because the form still submits and
+              reloads the page with the same values.</p>
           </article>
 
           <article class="card">
-            <h3 class="card__title">Dynamic, Week 7 onward</h3>
+            <h3 class="card__title">Server-side, Week 7 onward</h3>
             <p class="card__text">PHP reads each request and queries MySQL, so listings come from
-              a real table and the same page serves every student differently.</p>
+              a real table and the same URL serves every student differently.</p>
             <p class="card__text">Sign-in, sessions, a cart that survives a page reload and orders
               all appear once the data is live.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card__title">Still the same page</h3>
+            <p class="card__text">The filter, sorting and cart totals are JavaScript behaviours, not
+              new markup. This week added <code>js/</code> to the project and nothing else.</p>
+            <p class="card__text">The listing data stays in the HTML for now, which is why
+              <code>products.html</code> carries the same eight listings it had in Week 1.</p>
           </article>
         </div>
       </div>
@@ -106,12 +118,14 @@
 
         <dl class="detail-list">
           <div>
-            <dt>Weeks 1&ndash;4</dt>
-            <dd>Static catalog: home page, product listing, category pages and a product page in plain HTML and CSS.</dd>
+            <dt>Weeks 1&ndash;2</dt>
+            <dd>Static catalog in HTML and CSS, then client scripting: live search, category and
+              condition filters, sorting, and cart totals calculated in the browser. This build.</dd>
           </div>
           <div>
-            <dt>Weeks 2&ndash;5</dt>
-            <dd>Client scripting: live search, filters, sorting and cart totals calculated in the browser.</dd>
+            <dt>Weeks 3&ndash;5</dt>
+            <dd>More client scripting: form validation, working with strings and dates, and
+              finishing the interaction layer before the first assessment.</dd>
           </div>
           <div>
             <dt>Week 6</dt>
@@ -149,9 +163,10 @@
               the top of <code>css/style.css</code>, so a change there restyles every page.</p>
           </div>
           <div class="promise">
-            <p class="promise__title">No dependencies</p>
-            <p class="promise__text">No framework, no build step, no package manager. Open any
-              file in a browser and it works, which keeps the focus on the course material.</p>
+            <p class="promise__title">Plain scripts</p>
+            <p class="promise__text">Four small files in <code>js/</code>, loaded at the end of
+              <code>&lt;body&gt;</code>. No framework, no build step, no package manager, so the
+              focus stays on the course material.</p>
           </div>
         </div>
       </div>
@@ -209,7 +224,7 @@
 
     <div class="container site-footer__bottom">
       <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
-      <p>CCS 2314 &middot; Web Based Programming II &middot; Static catalog, no scripting yet.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
     </div>
   </footer>
 </body>

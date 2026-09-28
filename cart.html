@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your cart | CampusMarket</title>
+  <meta name="description" content="Review the items in your CampusMarket cart and see the running total update as you change quantities.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span>
+          <span class="brand__name">CampusMarket</span>
+          <span class="brand__tag">Student marketplace</span>
+        </span>
+      </a>
+
+      <form class="header-search" role="search" action="products.html" method="get">
+        <label class="visually-hidden" for="site-search">Search listings</label>
+        <input class="input" id="site-search" name="q" type="search" placeholder="Search the catalog">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Home</a></li>
+          <li><a class="site-nav__link" href="products.html">Products</a></li>
+          <li><a class="site-nav__link" href="products.html#categories">Categories</a></li>
+          <li><a class="site-nav__link" href="cart.html" aria-current="page">Cart</a></li>
+          <li><a class="site-nav__link" href="about.html">About</a></li>
+          <li><a class="site-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">All products</a></li>
+        <li aria-current="page">Cart</li>
+      </ol>
+    </nav>
+  </div>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container page-head__inner">
+        <p class="eyebrow">Step one of checkout</p>
+        <h1>Your cart</h1>
+        <p class="lead">Change a quantity or remove an item and the totals recalculate
+          immediately, in your browser. No server is involved.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cart-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="cart-title">Items in your cart</h2>
+
+        <div class="notice notice--info">
+          <p class="notice__title">This cart is a Week 2 demo</p>
+          <p>The three items below are written into the page by hand, and the running total is
+            calculated by JavaScript in your browser. Adding an item from a product page, and
+            keeping a cart between visits, both arrive with accounts, sessions and a database in
+            Week 7.</p>
+        </div>
+
+        <div class="cart-layout">
+          <div class="stack">
+            <article class="cart-item" data-item data-price="1200">
+              <div class="media media--electronics cart-item__media" role="img" aria-label="Placeholder for a product photo">Calculator</div>
+              <div class="stack">
+                <h3 class="product-card__title">
+                  <a href="product.html">Scientific Calculator (Casio fx-991)</a>
+                </h3>
+                <p class="product-card__meta">KSh 1,200 each &middot; Brian K. &middot; 2 available</p>
+                <div class="field">
+                  <label class="field__label" for="quantity-cm-0002">Quantity</label>
+                  <select class="select" id="quantity-cm-0002" onchange="updateTotal()">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+              </div>
+              <div class="cart-item__total">
+                <p class="price" data-line-total>KSh 1,200</p>
+                <button class="btn btn--ghost" type="button" onclick="removeItem(this)">Remove</button>
+              </div>
+            </article>
+
+            <article class="cart-item" data-item data-price="2200">
+              <div class="media media--textbooks cart-item__media" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+              <div class="stack">
+                <h3 class="product-card__title">
+                  <a href="product.html">Introduction to Algorithms (CLRS)</a>
+                </h3>
+                <p class="product-card__meta">KSh 2,200 each &middot; Faraj H. &middot; 1 available</p>
+                <div class="field">
+                  <label class="field__label" for="quantity-cm-0006">Quantity</label>
+                  <select class="select" id="quantity-cm-0006" onchange="updateTotal()">
+                    <option value="1" selected>1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="cart-item__total">
+                <p class="price" data-line-total>KSh 2,200</p>
+                <button class="btn btn--ghost" type="button" onclick="removeItem(this)">Remove</button>
+              </div>
+            </article>
+
+            <article class="cart-item" data-item data-price="1500">
+              <div class="media media--clothing cart-item__media" role="img" aria-label="Placeholder for a product photo">Hoodie</div>
+              <div class="stack">
+                <h3 class="product-card__title">
+                  <a href="product.html">Campus Hoodie &ndash; Navy (Size L)</a>
+                </h3>
+                <p class="product-card__meta">KSh 1,500 each &middot; Ian M. &middot; 1 available</p>
+                <div class="field">
+                  <label class="field__label" for="quantity-cm-0008">Quantity</label>
+                  <select class="select" id="quantity-cm-0008" onchange="updateTotal()">
+                    <option value="1" selected>1</option>
+                  </select>
+                </div>
+              </div>
+              <div class="cart-item__total">
+                <p class="price" data-line-total>KSh 1,500</p>
+                <button class="btn btn--ghost" type="button" onclick="removeItem(this)">Remove</button>
+              </div>
+            </article>
+
+            <div class="notice notice--warning" id="cart-empty" hidden>
+              <p class="notice__title">Your cart is empty</p>
+              <p>Every item has been removed. Go back to the catalog to pick something else.</p>
+            </div>
+
+            <p><a class="card__link" href="products.html">Back to all products</a></p>
+          </div>
+
+          <aside class="buy-box" aria-labelledby="summary-title">
+            <h2 class="title-sm" id="summary-title">Order summary</h2>
+            <dl class="detail-list">
+              <div>
+                <dt>Items in cart</dt>
+                <dd id="summary-count">3</dd>
+              </div>
+              <div>
+                <dt>Subtotal</dt>
+                <dd id="summary-subtotal">KSh 4,900</dd>
+              </div>
+              <div>
+                <dt>Service fee</dt>
+                <dd>None, pickup only</dd>
+              </div>
+            </dl>
+            <p class="price" id="summary-total">KSh 4,900</p>
+            <button class="btn btn--primary" type="submit" disabled aria-describedby="checkout-note">Proceed to checkout</button>
+            <button class="btn btn--secondary" type="button" onclick="updateTotal()">Update the total</button>
+            <p class="field__hint" id="checkout-note">Checkout arrives in a later week. Placing an
+              order needs a server to store it, which begins in Week 7.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">CM</span>
+          <span>
+            <span class="brand__name">CampusMarket</span>
+            <span class="brand__tag">Student marketplace</span>
+          </span>
+        </a>
+        <p>A campus marketplace for textbooks, electronics, dorm gear, transport and
+          clothing, built by students as a week by week web programming project.</p>
+      </div>
+
+      <nav aria-labelledby="footer-explore">
+        <h2 id="footer-explore">Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All products</a></li>
+          <li><a href="products.html#categories">Categories</a></li>
+          <li><a href="product.html">Product page</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-project">
+        <h2 id="footer-project">Project</h2>
+        <ul>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="about.html">About the build</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://github.com/webstar2005/campusmarket-Morgan-Maina">Source on GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>&copy; 2026 CampusMarket. Built by Morgan Maina.</p>
+      <p>CCS 2314 &middot; Web Based Programming II &middot; Weeks 1&ndash;2: static pages, plus client-side JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/format.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

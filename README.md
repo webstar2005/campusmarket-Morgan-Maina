@@ -4,20 +4,21 @@ A campus marketplace where students buy and sell second-hand items to each other
 textbooks, electronics, dorm and living gear, transport and clothing.
 
 - **Course:** CCS 2314 - Web Based Programming II
-- **Stage:** Weeks 1-4, the static catalog
+- **Stage:** Weeks 1-2, static catalog plus client-side JavaScript
 - **Built by:** Morgan Maina
 
 ## What this build contains
 
-Ten hand-written HTML pages and one stylesheet. No JavaScript, no PHP, no database,
-no framework and no build step, because the first four weeks of the course are about
-static content done properly.
+Eleven hand-written HTML pages, one stylesheet and four small JavaScript files. No PHP,
+no database, no framework and no build step, because the first half of the course is
+about static content done properly before anything dynamic arrives.
 
 | Page | Purpose |
 | --- | --- |
 | `index.html` | Home page: hero, how it works, category grid, featured listings |
-| `products.html` | Full catalog with all eight listings, filter form and pagination |
-| `product.html` | Product detail page for the Casio fx-991 listing |
+| `products.html` | Full catalog with all eight listings, live search, filters and sorting |
+| `product.html` | Product detail page for the Casio fx-991 listing, with a live line total |
+| `cart.html` | Cart page with running totals, quantity changes and item removal |
 | `category-electronics.html` | Electronics category listing |
 | `category-textbooks.html` | Textbooks category listing |
 | `category-dorm-living.html` | Dorm and living category listing |
@@ -26,11 +27,19 @@ static content done properly.
 | `about.html` | What the project is and how it grows each week |
 | `contact.html` | Contact form mock and working channels |
 
+| Script | Purpose |
+| --- | --- |
+| `js/filter.js` | Search, category and condition filtering, and sorting on `products.html` |
+| `js/format.js` | `formatMoney()`, shared by the product and cart pages |
+| `js/product-total.js` | Recalculates the quantity times price line total on `product.html` |
+| `js/cart.js` | Running cart total, count and empty state on `cart.html` |
+
 ```
 campusmarket-Morgan-Maina/
 ├── index.html
 ├── products.html
 ├── product.html
+├── cart.html
 ├── category-electronics.html
 ├── category-textbooks.html
 ├── category-dorm-living.html
@@ -38,25 +47,35 @@ campusmarket-Morgan-Maina/
 ├── category-clothing.html
 ├── about.html
 ├── contact.html
-└── css/
-    └── style.css
+├── css/
+│   └── style.css
+└── js/
+    ├── filter.js
+    ├── format.js
+    ├── product-total.js
+    └── cart.js
 ```
 
 ## Running it
 
 Open the folder in VS Code and use the **Live Server** extension, or serve the folder
-with anything static. Opening `index.html` straight off the disk also works, because
-nothing here needs a server.
+with anything static.
 
 ```bash
 # optional, if you prefer a local server
 php -S localhost:8000
 ```
 
+Filtering and the cart also work by opening the files straight off the disk, because
+the scripts are plain files in `js/`. Use the Live Server if you want to test the
+`?q=` search links, since those need a URL to read from.
+
 ## The catalog
 
 The same eight listings are used across every page, so the data is easy to keep
-consistent and carries over into the database in Week 7.
+consistent and carries over into the database in Week 7. Each card on `products.html`
+carries `data-id`, `data-name`, `data-price`, `data-category`, `data-condition` and
+`data-order`, so the listing data the filters read is already separated from the layout.
 
 | ID | Listing | Category | Price | Condition | Seller |
 | --- | --- | --- | --- | --- | --- |
@@ -76,6 +95,15 @@ consistent and carries over into the database in Week 7.
 - **One stylesheet** - `css/style.css` holds colour, type scale, spacing, radius and
   shadow as custom properties in `:root`, so a change there restyles every page.
   Components are named by block, for example `.product-card__title`.
+- **Plain client-side JavaScript** - each script finds elements with
+  `getElementById` or `querySelector`, then rewrites them with `textContent` or
+  `style.display`. Functions are called from `oninput`, `onchange` and `onclick`
+  attributes in the markup, and the scripts load at the end of `<body>` so those calls
+  resolve.
+- **Progressive enhancement** - the filter form is a real `GET` form with
+  `onsubmit="return false"`, so it keeps working with JavaScript switched off: the page
+  reloads with the chosen values in the query string, and `js/filter.js` reads them back
+  out of `window.location.search` on load.
 - **Responsive** - grids collapse with `auto-fit` and `minmax`, with a small number of
   breakpoints in the component that needs them.
 - **Accessible** - skip link, visible focus rings, `aria-current` on the active nav
@@ -89,18 +117,22 @@ These are placeholders for later weeks, not oversights:
 
 - Product visuals are styled CSS blocks. Real photos come with the product records in
   Week 7.
-- The filter and sort controls are real form elements but do not filter yet. That
-  arrives with the JavaScript weeks.
-- "Add to cart" is present and disabled. The cart appears from Week 2, and gains
-  accounts, sessions and persistence in Week 7.
+- The cart is three hard-coded rows in `cart.html`. It does not save, and adding an item
+  from a product page only links to the cart. Accounts, sessions and persistence arrive
+  with the database in Week 7.
+- Quantities are capped at 9 on both the product and cart pages, because this week is
+  about the arithmetic, not the stock rules.
+- Listings still live in the HTML, not in a table, so the catalog cannot be edited from
+  the site. That is the Week 7 change.
 - The contact form does not send. It needs a server, which arrives with the PHP weeks.
 
 ## Roadmap
 
 | Weeks | What is added |
 | --- | --- |
-| 1-4 | Static catalog in HTML and CSS, this build |
-| 2-5 | Live search, filtering, sorting and cart maths in the browser |
+| 1 | Static catalog in HTML and CSS |
+| 2 | Live search, filtering, sorting, cart maths and a cart page, this build |
+| 3-5 | Form validation, strings and dates, and the rest of the interaction layer |
 | 6 | CAT 1, the individual build is assessed |
 | 7-10 | PHP and MySQL: accounts, sessions, live product data, persistent cart |
 | 11 | CAT 2, the merged team version is assessed |

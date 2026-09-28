@@ -834,6 +834,45 @@ a.chip--primary:hover {
   text-align: right;
 }
 
+.cart-layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 60rem) {
+  .cart-layout {
+    grid-template-columns: 1.6fr 1fr;
+    align-items: start;
+  }
+}
+
+.cart-item {
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+  padding: var(--space-4);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 48rem) {
+  .cart-item {
+    grid-template-columns: 8rem 1fr auto;
+  }
+}
+
+.cart-item__media {
+  aspect-ratio: 1 / 1;
+  max-width: 8rem;
+}
+
+.cart-item__total {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+}
+
 .breadcrumb {
   padding-block: var(--space-4);
 }
