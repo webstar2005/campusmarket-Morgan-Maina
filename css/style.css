@@ -628,6 +628,12 @@ p {
   color: #5a2f6b;
 }
 
+.media--img {
+  padding: 0;
+  background: none;
+  object-fit: cover;
+}
+
 .card {
   display: grid;
   gap: var(--space-3);
@@ -1021,6 +1027,16 @@ a.chip--primary:hover {
   background: var(--color-success-soft);
   border-color: var(--color-success);
   border-left-color: var(--color-success);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: opacity var(--duration-slow) var(--ease-out), visibility var(--duration-slow), transform var(--duration-slow) var(--ease-out);
+}
+
+.notice--success.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 .notice--success .notice__title {
@@ -1053,6 +1069,17 @@ a.chip--primary:hover {
   color: var(--color-danger);
   font-size: 0.8125rem;
   font-weight: 600;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity var(--duration-base) var(--ease-out), visibility var(--duration-base), transform var(--duration-base) var(--ease-out);
+}
+
+.field__error[hidden] {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  pointer-events: none;
 }
 
 .field__error::before {

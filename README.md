@@ -1,3 +1,7 @@
+Full Name: Morgan Maina Mburu
+Admission Number: CIT-223-025/2024
+Live Site: https://campusmarket-morgan-maina.vercel.app/
+
 # CampusMarket
 
 A campus marketplace where students buy and sell second-hand items to each other:

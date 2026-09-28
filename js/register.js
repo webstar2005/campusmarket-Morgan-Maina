@@ -249,10 +249,14 @@ function handleSubmit(event) {
   }
 
   showSummary(problems);
-  successNotice.hidden = problems.length !== 0;
 
   if (problems.length > 0) {
     errorSummary.focus();
+    successNotice.hidden = true;
+    successNotice.classList.remove("is-visible");
+  } else {
+    successNotice.hidden = false;
+    successNotice.classList.add("is-visible");
   }
 }
 
@@ -263,6 +267,7 @@ function handleReset() {
 
   errorSummary.hidden = true;
   successNotice.hidden = true;
+  successNotice.classList.remove("is-visible");
   errorList.textContent = "";
   nameCount.textContent = "0 of " + NAME_MAX + " characters";
   strengthBar.dataset.score = "0";

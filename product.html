@@ -89,13 +89,14 @@
                 charges.</p>
 
               <form class="stack" action="products.html" method="get">
-                <div class="field">
+<div class="field">
                   <label class="field__label" for="quantity">Quantity</label>
-                  <select class="select" id="quantity" name="quantity">
+                  <select class="select" id="quantity" name="quantity" aria-describedby="quantity-hint quantity-error">
                     <option value="1" selected>1</option>
                     <option value="2">2</option>
                   </select>
-                  <p class="field__hint" id="cart-note">Two are available from this seller.</p>
+                  <p class="field__hint" id="quantity-hint">Two are available from this seller.</p>
+                  <p class="field__error" id="quantity-error" aria-live="polite"></p>
                 </div>
                 <p class="price" id="line-total">KSh 1,200</p>
                 <p class="field__hint">Quantity times price, recalculated in your browser each
@@ -231,7 +232,7 @@
 
         <div class="grid grid--3">
           <article class="product-card">
-            <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Keyboard</div>
+            <img class="media media--img" src="img/keyboard.svg" width="800" height="600" alt="Illustration of a wireless keyboard beside a matching mouse">
             <div class="product-card__body">
               <span class="chip chip--primary">Like new</span>
               <h3 class="product-card__title">
@@ -243,7 +244,7 @@
           </article>
 
           <article class="product-card">
-            <div class="media media--textbooks" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+            <img class="media media--img" src="img/algorithms.svg" width="800" height="600" alt="Illustration of a thick hardback book seen from the front">
             <div class="product-card__body">
               <span class="chip">Used &middot; good</span>
               <h3 class="product-card__title">
@@ -255,7 +256,7 @@
           </article>
 
           <article class="product-card">
-            <div class="media media--dorm-living" role="img" aria-label="Placeholder for a product photo">Desk lamp</div>
+            <img class="media media--img" src="img/lamp.svg" width="800" height="600" alt="Illustration of a desk lamp with an angled arm and a cone shade">
             <div class="product-card__body">
               <span class="chip chip--primary">New</span>
               <h3 class="product-card__title">

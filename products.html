@@ -131,7 +131,7 @@
       <div class="container">
         <h2 class="visually-hidden" id="listings-title">Listings</h2>
 
-        <div class="results-bar">
+<div class="results-bar">
           <p>Showing <strong id="visible-count">8</strong> of <strong>8</strong> listings</p>
           <p><span class="live-dot" aria-hidden="true"></span> Prices in KSh, pickup on
             campus only, updated as you type</p>
@@ -143,9 +143,34 @@
             "all".</p>
         </div>
 
+        <section class="section" aria-labelledby="gallery-title" id="product-gallery">
+          <div class="container">
+            <h2 class="visually-hidden" id="gallery-title">Filtered listings gallery</h2>
+            <div class="gallery" id="gallery" data-gallery>
+              <div class="gallery__frame" id="gallery-frame" aria-live="polite">
+              </div>
+              <div class="gallery__caption">
+                <p class="eyebrow" id="gallery-kicker">Listing 1 of 8</p>
+                <div class="gallery__caption-body" id="gallery-caption">
+                  <h3></h3>
+                  <p class="product-card__meta"></p>
+                </div>
+                <p><a class="card__link" id="gallery-link" href="#">Open this listing</a></p>
+              </div>
+              <div class="gallery__controls">
+                <div class="gallery__nav">
+                  <button class="btn btn--secondary" type="button" data-gallery-prev>Previous</button>
+                  <button class="btn btn--secondary" type="button" data-gallery-next>Next</button>
+                </div>
+                <ul class="gallery__dots" id="gallery-dots" aria-label="Choose a listing to show"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div class="grid grid--3" id="product-grid">
           <article class="product-card" data-product data-id="1" data-order="1" data-price="1200" data-category="electronics" data-condition="like-new" data-name="scientific calculator casio fx-991 electronics">
-            <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Calculator</div>
+            <img class="media media--img" src="img/calculator.svg" width="800" height="600" alt="Illustration of a scientific calculator showing a display and a keypad of keys">
             <div class="product-card__body">
               <span class="chip chip--primary">Like new</span>
               <h3 class="product-card__title">
@@ -159,7 +184,7 @@
           </article>
 
           <article class="product-card" data-product data-id="2" data-order="2" data-price="2500" data-category="electronics" data-condition="like-new" data-name="wireless keyboard and mouse combo electronics">
-            <div class="media media--electronics" role="img" aria-label="Placeholder for a product photo">Keyboard</div>
+            <img class="media media--img" src="img/keyboard.svg" width="800" height="600" alt="Illustration of a wireless keyboard beside a matching mouse">
             <div class="product-card__body">
               <span class="chip chip--primary">Like new</span>
               <h3 class="product-card__title">
@@ -173,7 +198,7 @@
           </article>
 
           <article class="product-card" data-product data-id="3" data-order="3" data-price="2200" data-category="textbooks" data-condition="used-good" data-name="introduction to algorithms clrs computer science textbooks">
-            <div class="media media--textbooks" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+            <img class="media media--img" src="img/algorithms.svg" width="800" height="600" alt="Illustration of a thick hardback book seen from the front">
             <div class="product-card__body">
               <span class="chip">Used &middot; good</span>
               <h3 class="product-card__title">
@@ -187,7 +212,7 @@
           </article>
 
           <article class="product-card" data-product data-id="4" data-order="4" data-price="1800" data-category="textbooks" data-condition="used-good" data-name="calculus early transcendentals 8th edition textbooks mathematics">
-            <div class="media media--textbooks" role="img" aria-label="Placeholder for a product photo">Textbook</div>
+            <img class="media media--img" src="img/calculus.svg" width="800" height="600" alt="Illustration of a textbook cover showing a curved graph">
             <div class="product-card__body">
               <span class="chip">Used &middot; good</span>
               <h3 class="product-card__title">
@@ -201,7 +226,7 @@
           </article>
 
           <article class="product-card" data-product data-id="5" data-order="5" data-price="6500" data-category="dorm-living" data-condition="used-fair" data-name="mini dorm fridge 45l dorm living">
-            <div class="media media--dorm-living" role="img" aria-label="Placeholder for a product photo">Fridge</div>
+            <img class="media media--img" src="img/fridge.svg" width="800" height="600" alt="Illustration of a small upright fridge with a freezer compartment at the top">
             <div class="product-card__body">
               <span class="chip chip--sale">Used &middot; fair</span>
               <h3 class="product-card__title">
@@ -215,7 +240,7 @@
           </article>
 
           <article class="product-card" data-product data-id="6" data-order="6" data-price="900" data-category="dorm-living" data-condition="new" data-name="led desk lamp with usb port dorm living">
-            <div class="media media--dorm-living" role="img" aria-label="Placeholder for a product photo">Desk lamp</div>
+            <img class="media media--img" src="img/lamp.svg" width="800" height="600" alt="Illustration of a desk lamp with an angled arm and a cone shade">
             <div class="product-card__body">
               <span class="chip chip--primary">New</span>
               <h3 class="product-card__title">
@@ -229,7 +254,7 @@
           </article>
 
           <article class="product-card" data-product data-id="7" data-order="7" data-price="9500" data-category="transport" data-condition="used-good" data-name="mountain bike size m transport">
-            <div class="media media--transport" role="img" aria-label="Placeholder for a product photo">Bicycle</div>
+            <img class="media media--img" src="img/bike.svg" width="800" height="600" alt="Illustration of a mountain bike with two wheels and a triangular frame">
             <div class="product-card__body">
               <span class="chip">Used &middot; good</span>
               <h3 class="product-card__title">
@@ -243,7 +268,7 @@
           </article>
 
           <article class="product-card" data-product data-id="8" data-order="8" data-price="1500" data-category="clothing" data-condition="new" data-name="campus hoodie navy size l clothing">
-            <div class="media media--clothing" role="img" aria-label="Placeholder for a product photo">Hoodie</div>
+            <img class="media media--img" src="img/hoodie.svg" width="800" height="600" alt="Illustration of a hooded sweatshirt with a front pocket">
             <div class="product-card__body">
               <span class="chip chip--primary">New</span>
               <h3 class="product-card__title">
@@ -315,6 +340,7 @@
     </div>
   </footer>
 
-  <script src="js/filter.js"></script>
+<script src="js/filter.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
 </html>

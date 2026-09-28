@@ -15,9 +15,21 @@ function isRemoved(item) {
   return item.dataset.removed === "true";
 }
 
+function validateQuantity(value) {
+  const qty = Number(value);
+  if (!Number.isInteger(qty) || qty < 1) {
+    return "Quantity must be a positive whole number";
+  }
+  if (qty > 9) {
+    return "Maximum quantity is 9";
+  }
+  return null;
+}
+
 function updateTotal() {
   let itemCount = 0;
   let subtotal = 0;
+  let allValid = true;
 
   for (const item of cartItems) {
     if (isRemoved(item)) {
@@ -26,6 +38,20 @@ function updateTotal() {
 
     const quantitySelect = item.querySelector("select");
     const quantity = Number(quantitySelect.value);
+    const error = validateQuantity(quantitySelect.value);
+
+    if (error) {
+      quantitySelect.setAttribute("aria-invalid", "true");
+      const errorEl = item.querySelector("[data-quantity-error]");
+      if (errorEl) errorEl.textContent = error;
+      allValid = false;
+      continue;
+    }
+
+    quantitySelect.removeAttribute("aria-invalid");
+    const errorEl = item.querySelector("[data-quantity-error]");
+    if (errorEl) errorEl.textContent = "";
+
     const lineTotal = calculateTotal(Number(item.dataset.price), quantity);
     const lineTotalElement = item.querySelector("[data-line-total]");
 
@@ -34,9 +60,15 @@ function updateTotal() {
     lineTotalElement.textContent = formatMoney(lineTotal);
   }
 
-  summaryCount.textContent = itemCount;
-  summarySubtotal.textContent = formatMoney(subtotal);
-  summaryTotal.textContent = formatMoney(subtotal);
+  if (allValid) {
+    summaryCount.textContent = itemCount;
+    summarySubtotal.textContent = formatMoney(subtotal);
+    summaryTotal.textContent = formatMoney(subtotal);
+  } else {
+    summaryCount.textContent = "—";
+    summarySubtotal.textContent = "—";
+    summaryTotal.textContent = "—";
+  }
   cartEmpty.hidden = itemCount !== 0;
 }
 
